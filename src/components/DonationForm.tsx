@@ -1,8 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useRef, useState } from "react";
-import { Button } from "./ui/button";
-import { initMercadoPago } from "@mercadopago/sdk-react";
-import axios from "axios";
+// import { initMercadoPago } from "@mercadopago/sdk-react";
+// import axios from "axios";
 
 interface Errors {
   name?: string;
@@ -10,35 +9,35 @@ interface Errors {
   user_message?: string;
 }
 
-interface Valores {
-  name: string;
-  donation: number;
-}
+// interface Valores {
+//   name: string;
+//   donation: number;
+// }
 
 const DonationForm = () => {
   const [formEnviado, setFormEnviado] = useState(false);
   const form = useRef(null);
-  const privateKey: string = import.meta.env.PRIVATE_KEY as string;
-  initMercadoPago(privateKey, { locale: "es-AR" });
+  // const privateKey: string = import.meta.env.PRIVATE_KEY as string;
+  // initMercadoPago(privateKey, { locale: "es-AR" });
 
-  const createPreference = async (valores:Valores) => {
-    try {
-      const response = await axios.post(
-        "https://pawsofhope.4.us-1.fl0.io/create-donation",
-        {
-          title: valores.name,
-          quantity: 1,
-          price: valores.donation,
-        }
-      );
+  // const createPreference = async (valores:Valores) => {
+  //   try {
+  //     const response = await axios.post(
+  //       "https://pawsofhope.4.us-1.fl0.io/create-donation",
+  //       {
+  //         title: valores.name,
+  //         quantity: 1,
+  //         price: valores.donation,
+  //       }
+  //     );
 
-      const {url} = response.data;
-      return url;
-    } catch (error) {
-      console.log(error)
-      throw new Error("Error en el frontend al crear la preferencia");
-    }
-  };
+  //     const {url} = response.data;
+  //     return url;
+  //   } catch (error) {
+  //     console.log(error)
+  //     throw new Error("Error en el frontend al crear la preferencia");
+  //   }
+  // };
 
 
 
@@ -72,8 +71,9 @@ const DonationForm = () => {
         onSubmit={async(valores, { resetForm }) => {
           resetForm();
           setFormEnviado(true);
-          const url = await createPreference(valores);
-          window.location.replace(url)
+          console.log(valores)
+          // const url = await createPreference(valores);
+          // window.location.replace(url)
           setTimeout(() => {
             setFormEnviado(false);
           }, 3000);
@@ -158,9 +158,9 @@ const DonationForm = () => {
                 </div>
               </div>
               <div className="flex items-center justify-center mt-2 lg:self-center">
-              <Button type="submit" className="mt-4 bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-6 px-10 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg" >
+              <button type="submit" className="mt-4 bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-6 px-10 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg" >
                 Realizar donación
-              </Button>
+              </button>
               </div>
               {formEnviado && (
                 <p className="flex justify-start text-green-500 font-bold text-sm pt-4">

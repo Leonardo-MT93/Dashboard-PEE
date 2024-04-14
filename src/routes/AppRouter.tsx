@@ -5,12 +5,14 @@ import DonationPage from '@/pages/DonationPage'
 import Home from '@/pages/Home'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Announcements from '@/pages/AnnouncementsPage'
+import CollaboratorsForm from '@/pages/CollaboratorsForm'
 
 const AppRouter = () => {
   return (
     <Routes>
         <>
             <Route path="/" element={<Home />} />
+            <Route path="/collaborator-form" element={<CollaboratorsForm />} />
             <Route path="/biography" element={<Biography />} />
             <Route path="/adoption" element={<AdoptionPage />} />
             <Route path="/announcements" element={<Announcements />} />

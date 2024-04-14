@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { Button } from "./ui/button";
 import { useState } from "react";
 import logo from '../img/logo-navbar.avif'
 
@@ -36,31 +35,22 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className="hover:border-b-2 hover:border-black md:text-sm lg:text-lg"
-                  to="/biography"
+                  to="/collaborator-form"
                 >
-                  Nosotros
+                  Colaboradores
                 </NavLink>
               </li>
-             
               <li>
                 <NavLink className=" hover:border-b-2 hover:border-black md:text-sm lg:text-lg " to="/adoption">
-                  Adopta!
+                  Adopciones
                 </NavLink>
               </li>
               <li>
                 <NavLink className="hover:border-b-2 hover:border-black md:text-sm lg:text-lg" to="/announcements">
-                  Novedades
-                </NavLink>
-              </li>
-               <li>
-                <NavLink className="hover:border-b-2 hover:border-black md:text-sm lg:text-lg" to="/contact" >
-                  ¿Dónde estamos?
+                  Noticias
                 </NavLink>
               </li>
             </ul>
-            <NavLink className="hidden md:flex items-center space-x-5" to='/donations'>
-              <Button>Hacer una donación</Button>
-            </NavLink>
             <button
             className=" flex-col justify-center items-center md:hidden pr-4"
             onClick={handleClick}
@@ -99,9 +89,9 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       className="relative group text-xl text-black my-2" onClick={closeModal}
-                      to="/biography"
+                      to="/collaborator-form"
                     >
-                      Nosotros
+                      Colaboradores
                     </NavLink>
                   </li>
                   <li>
@@ -109,7 +99,7 @@ const Navbar = () => {
                       className="relative group text-xl text-black my-2" onClick={closeModal}
                       to="/adoption"
                     >
-                      Adopta!
+                      Adopciones
                     </NavLink>
                   </li>
                   <li>
@@ -117,23 +107,10 @@ const Navbar = () => {
                       className="relative group text-xl text-black my-2" onClick={closeModal}
                       to="/announcements"
                     >
-                      Novedades
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className="relative group text-xl text-black my-2" onClick={closeModal}
-                      to="/contact"
-                    >
-                      ¿Dónde estamos?
+                      Noticias
                     </NavLink>
                   </li>
                 </ul>
-                <NavLink to="/donations" className="flex items-center" onClick={closeModal}>
-                  <Button className=" mt-4 bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
-                    Hacer una donación
-                  </Button>
-                </NavLink>
               </nav>
             </div>
           )}
